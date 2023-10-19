@@ -7,7 +7,7 @@
 <!-- [![Open in Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/jupiterorbita/MERN_NOV_2023) -->
 
 <!-- --------------------------------------------- -->
-## clone/fork this repo, then `git pull` to get the latest changes
+## `git clone https://github.com/jupiterorbita/MERN_NOV_2023.git` or <em>fork</em> this repo, then `git pull` to get the latest changes
 
 <!-- <br/>
 
