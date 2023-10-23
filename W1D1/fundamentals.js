@@ -5,10 +5,10 @@ sayHi(); // ?
 function sayHi() {
     var name;
     console.log(name);
-    name = "alice"
+    name = "alice";
 }
 
-console.log(name) // ?
+console.log(name); // ?
 
 // -- HOISTING --
 const x = "bob";
@@ -22,7 +22,7 @@ console.log(nums);
 const message = "hi";
 message = "hello";
 
-const example = "3"
+const example = "3";
 example = 3;
 
 const person = {
@@ -46,6 +46,8 @@ const person = {
     createdAt: 1543945177623
 };
 
+const email = "bob@email.com";
+const { email: personEmail } = person;
 const { addresses: [, sherlock] } = person;
 console.log(sherlock);
 
@@ -81,7 +83,8 @@ console.log(coolAnimal, anotherAnimal, lastAnimal);
 // --- REST / SPREAD ----
 //        0x00141EF
 const a = [10, 20, 30];
-const b = [...a];
+// const [first, second] = a;
+const b = ["bob", ...a, 99];
 
 b.push(10000);
 
