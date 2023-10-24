@@ -55,7 +55,7 @@ console.log(bob);
 
 // --- Inheritance ----
 class SuperHero extends Human {
-    constructor(name, speed, health, power = 1000,) {
+    constructor(name, speed, health, power = 1000) {
         super(name, power);
         this.speed = speed;
         this.health = health;
