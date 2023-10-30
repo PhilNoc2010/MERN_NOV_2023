@@ -1,11 +1,23 @@
 import './App.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 function App() {
 
   const [heroes, setHeroes] = useState([]);
 
+  useEffect(() => {
+    axios.get("https://akabab.github.io/superhero-api/api/all.json")
+      .then(res => {
+        // ! axios wraps the res in it's own .data key
+        console.log(res.data); // 👀
+        setHeroes(res.data); // we know from the prev console log that this IS an array
+      })
+      .catch(err => console.log("❌❌❌❌❌❌❌", err));
+
+  }, []);
+
+  
   // vanilla JS fetch
   const fetchHeroes = () => {
     fetch("https://akabab.github.io/superhero-api/api/all.json")
@@ -25,11 +37,13 @@ function App() {
     axios.get("https://akabab.github.io/superhero-api/api/all.json")
       .then(res => {
         // ! axios wraps the res in it's own .data key
-        console.log(res.data);
+        console.log(res.data); // 👀
         setHeroes(res.data); // we know from the prev console log that this IS an array
       })
       .catch(err => console.log("❌❌❌❌❌❌❌", err));
   };
+
+  // axiosHeroes(); 🚨 DO NOT DO THIS IN THE COMPONENT, because it's changing a STATE var
 
   return (
     <div className="App">
