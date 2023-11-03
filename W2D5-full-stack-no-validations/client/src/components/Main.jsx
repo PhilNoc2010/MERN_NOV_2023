@@ -17,6 +17,18 @@ const Main = (props) => {
             });
     }, []);
 
+    const deleteMe = (deleteId) => {
+        axios.delete("http://localhost:8000/api/movies/" + deleteId)
+            .then(res => {
+                console.log("OK DELETED", res.data);
+                const filteredMovies = movies.filter((eachMovie) => {
+                    return eachMovie._id !== deleteId;
+                });
+                setMovies(filteredMovies);
+            })
+            .catch(err => console.log(err));
+    };
+
     return (
         <div>
             <p>
@@ -32,6 +44,9 @@ const Main = (props) => {
                             <img src={oneMovie.image} width="150px" alt="" />
                             <p>released: {oneMovie.releaseYear}</p>
                             <p>have you seen this? {oneMovie.seen ? "yes" : "no"}</p>
+                            <Link to={`/movies/${oneMovie._id}/update`} >UPDATE THIS MOVIE</Link>
+                            <br />
+                            <button onClick={() => deleteMe(oneMovie._id)}>DELETE ❌</button>
                             <hr />
                         </div>
                     );
