@@ -226,3 +226,74 @@ function entries(obj) {
 
 console.log(entries(obj1));
 console.log(entries(obj2));
+
+// -----------------
+function findObjectsFilter(searchObj, items) {
+    let answerArr = [];
+    for (let i = 0; i < items.length; i++) {
+        flag = 1;
+        for (let key in searchObj) {
+            if (!(key in items[i]) || items[i][key] !== searchObj[key]) {
+                flag = 0;
+            }
+        }
+        if (flag == 1) {
+            answerArr.push(items[i]);
+        }
+    }
+    return answerArr;
+}
+
+// ---------------
+function findObjectsFilter(searchObj, items) {
+    // creating empty result array
+    const filteredItems = [];
+    // looping over items list to find each obj
+    for (let item of items) {
+        let isMatch = true; //flag
+        // looping over searchObj
+        for (let key in searchObj) {
+            // conditional to check if the obj were looping over is not equal
+            // to the searchObj
+            if (item[key] !== searchObj[key]) {
+                isMatch = false;
+                break;
+            }
+        }
+        // if there is a match isMatch wouldnt have been set to false
+        // so we push that item into our filteredItems array
+        if (isMatch) {
+            filteredItems.push(item);
+        }
+    }
+    return filteredItems;
+}
+
+// -------------
+function findObjectsFilter(searchObj, items) {
+    let answerArr = new Array();
+    const searchObjLen = Object.keys(searchObj).length;
+    for (let item of items) {
+        let count = 0;
+        for (let key in searchObj) {
+            if (searchObj[key] === item[key])
+                count++;
+        }
+        if (count == searchObjLen)
+            answerArr.push(item);
+    }
+    return answerArr;
+}
+
+// -------------
+
+const tempFun = (items, searchObj) => {
+    return items.filter((item) => {
+        for (const key in searchObj) {
+            if (searchObj[key] !== item[key]) {
+                return false;
+            }
+        }
+        return true;
+    });
+};
