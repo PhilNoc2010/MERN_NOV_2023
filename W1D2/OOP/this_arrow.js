@@ -4,11 +4,11 @@ class Arrow {
     }
 
     sayName = () => {
-        console.log(this.name);
-        // const innerFunction = () => {
-        //     console.log(this.name)
-        // }
-        // innerFunction()
+        // console.log(this.name);
+        const innerFunction = () => {
+            console.log(this.name)
+        }
+        innerFunction()
     };
 }
 

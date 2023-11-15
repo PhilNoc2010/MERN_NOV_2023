@@ -4,11 +4,11 @@ class Regular {
     }
 
     sayName() {
-        console.log(this.name);
-        // function innerFunction() {
-        //     console.log(this.name)
-        // }
-        // innerFunction()
+        // console.log(this.name);
+        function innerFunction() {
+            console.log(this.name)
+        }
+        innerFunction()
     }
 }
 
